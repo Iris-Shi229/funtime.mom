@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle Supermarket Tycoon - Build Your Shopping Empire | FunTime Games</title>
+    <meta name="description" content="Play Idle Supermarket Tycoon for free! Build and manage your own supermarket empire in this addictive idle business simulation game.">
+    <link rel="canonical" href="https://funtime.mom/idle-supermarket-tycoon">
+    <meta name="keywords" content="Idle Supermarket Tycoon, supermarket simulation, idle games, business tycoon, shopping games">
+    <style>
+        :root {
+            /* Apple-inspired color palette */
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-indigo: #5856D6;
+            --apple-orange: #FF9500;
+            --apple-pink: #FF2D55;
+            --apple-purple: #AF52DE;
+            --apple-red: #FF3B30;
+            --apple-teal: #5AC8FA;
+            --apple-yellow: #FFCC00;
+            --apple-gray-100: #F2F2F7;
+            --apple-gray-200: #E5E5EA;
+            --apple-gray-300: #D1D1D6;
+            --apple-gray-400: #C7C7CC;
+            --apple-gray-500: #AEAEB2;
+            --apple-gray-600: #8E8E93;
+            --apple-gray-700: #636366;
+            --apple-gray-800: #48484A;
+            --apple-gray-900: #3A3A3C;
+            --apple-gray-950: #1C1C1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-gray-100);
+            color: var(--apple-gray-950);
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                margin-bottom: 0;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--apple-gray-200);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--apple-blue);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--apple-gray-700);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* Game Container */
+        .game-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apple-gray-800);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            color: var(--apple-gray-700);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--apple-gray-950);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-link {
+            color: var(--apple-gray-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--apple-gray-900);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--apple-gray-600);
+        }
+
+        /* Utility Classes */
+        .text-purple {
+            color: var(--apple-purple);
+        }
+
+        .text-green {
+            color: var(--apple-green);
+        }
+
+        .text-orange {
+            color: var(--apple-orange);
+        }
+
+        .text-red {
+            color: var(--apple-red);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">FunTime.mom</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Idle Supermarket Tycoon</h1>
+            <p class="hero-description">Build and manage your own supermarket empire in this addictive idle business simulation!</p>
+        </section>
+
+        <section class="game-container">
+            <iframe class="responsive-iframe" src="https://html5.gamedistribution.com/02224b554f1440deba32087adfcb7182/?gd_sdk_referrer_url=https://gamedistribution.com/games/idle-supermarket-tycoon/" allowfullscreen></iframe>
+        </section>
+
+        <section class="grid grid-cols-1 grid-cols-2">
+            <div class="card">
+                <h2 class="text-purple">How to Play</h2>
+                <p>Start with a small market and expand it into a shopping empire! Idle Supermarket Tycoon lets you manage every aspect of your business:</p>
+                <ul>
+                    <li>Hire and manage staff for different departments</li>
+                    <li>Upgrade and expand your store with new sections</li>
+                    <li>Research innovations to increase profits</li>
+                    <li>Balance budgets and maximize your earnings</li>
+                    <li>Earn money even when you're offline!</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2 class="text-green">Game Features</h2>
+                <ul>
+                    <li>Addictive idle gameplay mechanics</li>
+                    <li>Beautiful graphics and smooth animations</li>
+                    <li>Multiple store departments to manage</li>
+                    <li>Dozens of upgrades and improvements</li>
+                    <li>Challenging economic simulation</li>
+                    <li>Strategic resource management</li>
+                    <li>Offline progress system</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="text-orange">About Idle Supermarket Tycoon</h2>
+            <p>Idle Supermarket Tycoon is an engaging business simulation game that puts you in charge of your own retail empire. Starting with a modest shop, you'll make strategic decisions to expand your business, hire employees, and maximize profits.</p>
+            <p>What sets this game apart is its idle mechanics - your supermarket continues to generate income even when you're not actively playing! Return to find your cash reserves growing, allowing you to make bigger and better upgrades.</p>
+            <p>Perfect for casual gamers who enjoy management simulations, Idle Supermarket Tycoon offers an accessible yet deep experience that will keep you coming back to check on your business empire.</p>
+        </section>
+
+        <section class="card">
+            <h2 class="text-red">Tips & Strategies</h2>
+            <div class="grid grid-cols-1 grid-cols-2">
+                <div>
+                    <h3>For Beginners</h3>
+                    <ul>
+                        <li>Focus on upgrading your initial departments first</li>
+                        <li>Regularly collect your offline earnings</li>
+                        <li>Save up for manager hires to automate sections</li>
+                        <li>Balance expansion with upgrades for optimal growth</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Advanced Players</h3>
+                    <ul>
+                        <li>Prioritize research that increases overall profit margins</li>
+                        <li>Expand strategically - not all departments are equally profitable</li>
+                        <li>Time your prestige resets for maximum benefit</li>
+                        <li>Focus on customer satisfaction metrics for long-term growth</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="grid grid-cols-1 grid-cols-3">
+                <div>
+                    <h3>FunTime.mom</h3>
+                    <p>Your destination for the best free online games!</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="footer-link">Home</a></li>
+                        <li><a href="#" class="footer-link">Popular Games</a></li>
+                        <li><a href="#" class="footer-link">New Releases</a></li>
+                        <li><a href="#" class="footer-link">Categories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FunTime.mom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
