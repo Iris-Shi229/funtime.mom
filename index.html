@@ -35,6 +35,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -57,6 +58,9 @@
             color: white;
             padding: 1.5rem 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -93,11 +97,13 @@
         nav a {
             color: white;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
+            display: inline-block;
         }
 
         nav a:hover {
             color: var(--apple-gray-200);
+            transform: translateY(-2px);
         }
 
         /* Main Content */
@@ -108,6 +114,7 @@
         .hero {
             text-align: center;
             margin-bottom: 3rem;
+            padding-top: 1rem;
         }
 
         h1 {
@@ -254,6 +261,40 @@
         .text-red {
             color: var(--apple-red);
         }
+
+        /* Section spacing for scroll targets */
+        section {
+            scroll-margin-top: 6rem;
+        }
+
+        /* Smooth scroll indicator */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--apple-blue);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body>
@@ -263,10 +304,10 @@
                 <div class="logo">FunTime.mom</div>
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Games</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#game">Play Game</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -274,16 +315,16 @@
     </header>
 
     <main class="container">
-        <section class="hero">
+        <section id="home" class="hero">
             <h1>Idle Supermarket Tycoon</h1>
             <p class="hero-description">Build and manage your own supermarket empire in this addictive idle business simulation!</p>
         </section>
 
-        <section class="game-container">
-            <iframe class="responsive-iframe" src="https://html5.gamedistribution.com/02224b554f1440deba32087adfcb7182/?gd_sdk_referrer_url=https://gamedistribution.com/games/idle-supermarket-tycoon/" allowfullscreen></iframe>
+        <section id="game" class="game-container">
+            <iframe class="responsive-iframe" src="https://html5.gamedistribution.com/02224b554f1440deba32087adfcb7182/?gd_sdk_referrer_url=https://gamedistribution.com/games/idle-supermarket-tycoon/" allowfullscreen allow="autoplay; fullscreen" referrerpolicy="origin"></iframe>
         </section>
 
-        <section class="grid grid-cols-1 grid-cols-2">
+        <section id="features" class="grid grid-cols-1 grid-cols-2">
             <div class="card">
                 <h2 class="text-purple">How to Play</h2>
                 <p>Start with a small market and expand it into a shopping empire! Idle Supermarket Tycoon lets you manage every aspect of your business:</p>
@@ -309,14 +350,14 @@
             </div>
         </section>
 
-        <section class="card">
+        <section id="about" class="card">
             <h2 class="text-orange">About Idle Supermarket Tycoon</h2>
             <p>Idle Supermarket Tycoon is an engaging business simulation game that puts you in charge of your own retail empire. Starting with a modest shop, you'll make strategic decisions to expand your business, hire employees, and maximize profits.</p>
             <p>What sets this game apart is its idle mechanics - your supermarket continues to generate income even when you're not actively playing! Return to find your cash reserves growing, allowing you to make bigger and better upgrades.</p>
             <p>Perfect for casual gamers who enjoy management simulations, Idle Supermarket Tycoon offers an accessible yet deep experience that will keep you coming back to check on your business empire.</p>
         </section>
 
-        <section class="card">
+        <section id="tips" class="card">
             <h2 class="text-red">Tips & Strategies</h2>
             <div class="grid grid-cols-1 grid-cols-2">
                 <div>
@@ -341,7 +382,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="grid grid-cols-1 grid-cols-3">
                 <div>
@@ -351,18 +392,18 @@
                 <div>
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#" class="footer-link">Home</a></li>
-                        <li><a href="#" class="footer-link">Popular Games</a></li>
-                        <li><a href="#" class="footer-link">New Releases</a></li>
-                        <li><a href="#" class="footer-link">Categories</a></li>
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#game" class="footer-link">Play Game</a></li>
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#tips" class="footer-link">Game Tips</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3>Legal</h3>
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                        <li><a href="#" class="footer-link">Terms of Service</a></li>
-                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="mailto:info@funtime.mom" class="footer-link">Email: info@funtime.mom</a></li>
+                        <li><a href="#" class="footer-link">Discord Community</a></li>
+                        <li><a href="#" class="footer-link">Twitter/X: @funtimemom</a></li>
                     </ul>
                 </div>
             </div>
@@ -371,5 +412,36 @@
             </div>
         </div>
     </footer>
+    
+    <a href="#home" class="scroll-top" id="scrollTop">↑</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Show/hide scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
