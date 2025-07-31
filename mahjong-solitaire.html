@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahjong Solitaire - Free Online Game | FunTime Games</title>
+    <meta name="description" content="Play Mahjong Solitaire for free! Classic tile-matching puzzle game with beautiful graphics and relaxing gameplay.">
+    <link rel="canonical" href="https://funtime.mom/mahjong-solitaire">
+    <meta name="keywords" content="Mahjong Solitaire, tile matching, puzzle games, mahjong tiles, solitaire games">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EL4YTHLCDC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EL4YTHLCDC');
+    </script>
+    <style>
+        :root {
+            /* Apple-inspired color palette */
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-indigo: #5856D6;
+            --apple-orange: #FF9500;
+            --apple-pink: #FF2D55;
+            --apple-purple: #AF52DE;
+            --apple-red: #FF3B30;
+            --apple-teal: #5AC8FA;
+            --apple-yellow: #FFCC00;
+            --apple-gray-100: #F2F2F7;
+            --apple-gray-200: #E5E5EA;
+            --apple-gray-300: #D1D1D6;
+            --apple-gray-400: #C7C7CC;
+            --apple-gray-500: #AEAEB2;
+            --apple-gray-600: #8E8E93;
+            --apple-gray-700: #636366;
+            --apple-gray-800: #48484A;
+            --apple-gray-900: #3A3A3C;
+            --apple-gray-950: #1C1C1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-gray-100);
+            color: var(--apple-gray-950);
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                margin-bottom: 0;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--apple-gray-200);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--apple-blue);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--apple-gray-700);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* Game Container */
+        .game-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apple-gray-800);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            color: var(--apple-gray-700);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--apple-gray-950);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-link {
+            color: var(--apple-gray-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--apple-gray-900);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--apple-gray-600);
+        }
+
+        /* Utility Classes */
+        .text-purple {
+            color: var(--apple-purple);
+        }
+
+        .text-green {
+            color: var(--apple-green);
+        }
+
+        .text-orange {
+            color: var(--apple-orange);
+        }
+
+        .text-red {
+            color: var(--apple-red);
+        }
+
+        .text-teal {
+            color: var(--apple-teal);
+        }
+
+        .text-indigo {
+            color: var(--apple-indigo);
+        }
+
+        /* Section spacing for scroll targets */
+        section {
+            scroll-margin-top: 6rem;
+        }
+
+        /* Smooth scroll indicator */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--apple-blue);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">FunTime.mom</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#game">Supermarket Tycoon</a></li>
+                        <li><a href="#game">Mahjong Solitaire</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero">
+            <h1>Mahjong Solitaire</h1>
+            <p class="hero-description">Experience the classic tile-matching puzzle game with beautiful graphics and relaxing gameplay!</p>
+        </section>
+
+        <section id="game" class="game-container">
+            <iframe 
+                id="game-iframe" 
+                src="https://games.crazygames.com/en_US/mahjongg-solitaire/index.html?v=1.335" 
+                title="Mahjong Solitaire - Free Online Game" 
+                scrolling="no" 
+                allow="autoplay; payment; fullscreen; microphone; focus-without-user-activation *; screen-wake-lock; gamepad; clipboard-read; clipboard-write; accelerometer; gyroscope;" 
+                allowfullscreen 
+                sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-same-origin allow-downloads allow-popups allow-popups-to-escape-sandbox" 
+                loading="eager" 
+                importance="high" 
+                class="responsive-iframe">
+                <p>Your browser does not support iframes. Please try a different browser or <a href="https://games.crazygames.com/en_US/mahjongg-solitaire/index.html">play the game directly</a>.</p>
+            </iframe>
+        </section>
+
+        <section id="features" class="grid grid-cols-1 grid-cols-2">
+            <div class="card">
+                <h2 class="text-purple">How to Play</h2>
+                <p>Mahjong Solitaire is a classic tile-matching puzzle game! Your goal is to clear all tiles from the board:</p>
+                <ul>
+                    <li>Find matching pairs of identical mahjong tiles and click to match them</li>
+                    <li>Only tiles that are not blocked by other tiles can be selected</li>
+                    <li>Tiles must have at least one side (left or right) completely free</li>
+                    <li>Flower and season tiles can be matched with any other flower or season tile</li>
+                    <li>Clear all tiles to win the game!</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2 class="text-green">Game Features</h2>
+                <ul>
+                    <li>Classic Mahjong Solitaire gameplay</li>
+                    <li>Beautiful traditional tile designs</li>
+                    <li>Multiple layouts and difficulty levels</li>
+                    <li>Relaxing sound effects and visual feedback</li>
+                    <li>Hint system to help solve challenging situations</li>
+                    <li>Undo feature allows strategic reconsideration</li>
+                    <li>Timer functionality to challenge your speed</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="about" class="card">
+            <h2 class="text-orange">About Mahjong Solitaire</h2>
+            <p>Mahjong Solitaire is a single-player puzzle game based on traditional Chinese mahjong tiles. The objective is to clear the entire board by matching pairs of identical tiles.</p>
+            <p>Originally developed as a computer game in the 1980s, it quickly became one of the most popular casual puzzle games. It combines strategic thinking with visual pattern recognition, providing both mental exercise and relaxing entertainment.</p>
+            <p>Our version features authentic traditional tile designs and multiple game layouts, making this timeless classic enjoyable for players of all ages and skill levels.</p>
+        </section>
+
+        <section id="tips" class="card">
+            <h2 class="text-red">Tips & Strategies</h2>
+            <div class="grid grid-cols-1 grid-cols-2">
+                <div>
+                    <h3>For Beginners</h3>
+                    <ul>
+                        <li>Focus on clearing top layers and edge tiles first</li>
+                        <li>Look for exact matching pairs of identical tiles</li>
+                        <li>Use the hint system to learn tile matching patterns</li>
+                        <li>Take your time and carefully examine each tile</li>
+                        <li>Remember that flower and season tiles can match each other</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Advanced Players</h3>
+                    <ul>
+                        <li>Prioritize removing tiles that unlock the most other tiles</li>
+                        <li>Avoid clearing tiles too early that you might need later</li>
+                        <li>Think several moves ahead before making matches</li>
+                        <li>Learn to recognize blocked situations and use undo wisely</li>
+                        <li>Practice rapid tile pattern recognition for faster play</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="rules" class="card">
+            <h2 class="text-teal">Tile Types</h2>
+            <div class="grid grid-cols-1 grid-cols-3">
+                <div>
+                    <h3>Number Tiles</h3>
+                    <ul>
+                        <li>Characters: 1 through 9</li>
+                        <li>Bamboos: 1 through 9</li>
+                        <li>Circles: 1 through 9</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Honor Tiles</h3>
+                    <ul>
+                        <li>Winds: East, South, West, North</li>
+                        <li>Dragons: Red, Green, White</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Bonus Tiles</h3>
+                    <ul>
+                        <li>Flowers: Plum, Orchid, Bamboo, Chrysanthemum</li>
+                        <li>Seasons: Spring, Summer, Autumn, Winter</li>
+                        <li>※ Flowers and seasons can match each other</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="grid grid-cols-1 grid-cols-3">
+                <div>
+                    <h3>FunTime.mom</h3>
+                    <p>Your destination for the best free online games!</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="#game" class="footer-link">Play Game</a></li>
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#tips" class="footer-link">Game Tips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="mailto:info@funtime.mom" class="footer-link">Email: info@funtime.mom</a></li>
+                        <li><a href="#" class="footer-link">Discord Community</a></li>
+                        <li><a href="#" class="footer-link">Twitter/X: @funtimemom</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FunTime.mom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#home" class="scroll-top" id="scrollTop">↑</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Show/hide scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
